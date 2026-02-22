@@ -3,216 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Men's Legacy | Luxury Standard</title>
+    <title>Men's Legacy | Professional Elite</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        :root {
-            --bg-color: #121212; /* ম্যাট ব্ল্যাক */
-            --card-bg: #1e1e1e; /* ডিপ চারকোল */
-            --text-gold: #e5c07b; /* সফট মেটালিক গোল্ড */
-            --text-silver: #e0e0e0;
-        }
-        body { 
-            font-family: 'Outfit', sans-serif; 
-            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%); 
-            color: var(--text-silver);
-            overflow-x: hidden;
-        }
+        body { font-family: 'Outfit', sans-serif; background: #0b0c10; color: #ffffff; overflow-x: hidden; }
         .cinzel { font-family: 'Cinzel', serif; }
-        
-        /* Glassmorphism Navigation */
-        nav {
-            background: rgba(18, 18, 18, 0.8);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Luxury Product Card */
-        .luxury-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .luxury-card:hover {
-            border-color: rgba(229, 192, 123, 0.3);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            transform: translateY(-8px) scale(1.01);
-        }
-        .luxury-card img {
-            filter: grayscale(20%);
-            transition: 0.8s;
-        }
-        .luxury-card:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.08);
-        }
-
-        /* Size Selection Buttons */
-        .size-btn {
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
-        }
-        .size-btn:hover, .size-active {
-            background: var(--text-gold);
-            color: black;
-            border-color: var(--text-gold);
-        }
-
-        /* Floating WhatsApp with Glow */
-        .wa-glow {
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-            animation: breathe 3s infinite;
-        }
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
-            50% { transform: scale(1.1); box-shadow: 0 0 35px rgba(37, 211, 102, 0.6); }
-        }
-
-        /* Animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .page { display: none; }
+        .active-page { display: flex; flex-direction: column; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .gold-text { background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .product-card { background: #1f2833; border-radius: 20px; border: 1px solid #2d3748; }
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(11, 12, 16, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #1f2833; z-index: 1000; display: flex; justify-content: space-around; padding: 15px 0; }
+        .nav-item.active { color: #d4af37; }
+        .float-btns { position: fixed; bottom: 100px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+        .f-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
     </style>
 </head>
-<body class="pb-24">
+<body>
 
-    <a href="https://wa.me/8801711793765" class="fixed bottom-8 left-8 z-[1000] wa-glow bg-[#25d366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <nav class="sticky top-0 z-[100] px-6 py-5">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-left">
-                <h1 class="cinzel text-xl md:text-2xl tracking-[2px] text-white">MEN'S <span class="text-[#e5c07b]">LEGACY</span></h1>
-            </div>
-            <a href="https://www.facebook.com/share/1F4wi7ZPhE/" target="_blank" class="text-[10px] tracking-[2px] border border-[#e5c07b] text-[#e5c07b] px-5 py-2 hover:bg-[#e5c07b] hover:text-black transition uppercase font-bold">Follow Page</a>
-        </div>
-    </nav>
-
-    <header class="container mx-auto px-6 pt-24 pb-16 text-center reveal">
-        <h2 class="cinzel text-5xl md:text-7xl mb-6 text-white leading-tight">Define Your <br><span class="text-[#e5c07b]">Presence</span></h2>
-        <p class="text-gray-400 max-w-lg mx-auto text-sm tracking-widest uppercase">Premium Panjabi Collection — 2026</p>
-    </header>
-
-    <div class="flex justify-center space-x-12 mb-20 reveal">
-        <button onclick="switchDesign('d1', this)" class="tab-item text-[#e5c07b] border-b border-[#e5c07b] pb-2 text-xs tracking-[4px] font-bold uppercase">Design 01</button>
-        <button onclick="switchDesign('d2', this)" class="tab-item text-gray-500 pb-2 text-xs tracking-[4px] font-bold uppercase hover:text-white transition">Design 02</button>
+    <div class="float-btns">
+        <a href="https://wa.me/8801711793765" class="f-btn bg-[#25d366] text-white"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/1F4wi7ZPhE/" class="f-btn bg-[#1877F2] text-white"><i class="fab fa-facebook-f"></i></a>
     </div>
 
-    <main class="container mx-auto px-6">
-        <div id="d1" class="shop-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div id="home-page" class="page active-page h-screen">
+        <div class="flex-grow flex flex-col justify-center items-center text-center px-8">
+            <div class="w-24 h-24 border-2 border-[#d4af37] rounded-full flex items-center justify-center mb-6">
+                <span class="cinzel text-3xl gold-text">ML</span>
             </div>
-        <div id="d2" class="shop-grid hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            </div>
-    </main>
+            <h1 class="cinzel text-4xl font-extrabold tracking-widest mb-4">MEN'S LEGACY</h1>
+            <p class="text-gray-400 max-w-sm mb-10 text-xs tracking-[0.2em] uppercase">Premium Panjabi Collection</p>
+            <button onclick="navigateTo('shop-page')" class="border border-[#d4af37] text-[#d4af37] px-12 py-4 rounded-full font-bold tracking-widest text-[10px] hover:bg-[#d4af37] hover:text-black transition-all">EXPLORE SHOP</button>
+        </div>
+    </div>
 
-    <div id="orderModal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden z-[2000] flex items-center justify-center p-6">
-        <div class="bg-[#1a1a1a] border border-white/5 w-full max-w-md rounded-3xl p-8">
-            <h3 class="cinzel text-2xl text-[#e5c07b] mb-8 text-center uppercase tracking-widest">Order Details</h3>
-            <div class="space-y-6">
-                <input type="text" id="custName" placeholder="আপনার নাম" class="w-full bg-white/5 border-b border-white/10 py-3 outline-none focus:border-[#e5c07b] text-white transition">
-                <input type="text" id="custAddress" placeholder="ডেলিভারি ঠিকানা" class="w-full bg-white/5 border-b border-white/10 py-3 outline-none focus:border-[#e5c07b] text-white transition">
-                <input type="tel" id="custPhone" placeholder="মোবাইল নম্বর" class="w-full bg-white/5 border-b border-white/10 py-3 outline-none focus:border-[#e5c07b] text-white transition">
-                <button onclick="submitOrder()" class="w-full bg-[#e5c07b] text-black py-5 rounded-full font-bold uppercase tracking-widest mt-6 hover:brightness-110 transition">Confirm Order</button>
-                <button onclick="closeModal()" class="w-full text-gray-500 text-[10px] tracking-[2px] uppercase mt-2">Go Back</button>
+    <div id="shop-page" class="page min-h-screen pt-4 px-4 pb-24">
+        <div class="flex justify-center gap-4 mb-8 sticky top-4 z-50">
+            <button onclick="filterDesign('d1', this)" class="tab-btn py-2 px-6 text-[10px] font-bold border border-[#d4af37] rounded-full text-[#d4af37] bg-[#d4af37]/10">DESIGN 01</button>
+            <button onclick="filterDesign('d2', this)" class="tab-btn py-2 px-6 text-[10px] font-bold border border-gray-700 rounded-full text-gray-500">DESIGN 02</button>
+        </div>
+        <main class="grid grid-cols-2 gap-4" id="products-container"></main>
+    </div>
+
+    <div id="order-page" class="page p-6 pb-24 min-h-screen">
+        <h2 class="cinzel text-xl gold-text mb-8 text-center tracking-widest">ORDERED ITEMS</h2>
+        <div id="ordered-list" class="space-y-4">
+            <p class="text-gray-600 text-center py-10 italic">No orders yet.</p>
+        </div>
+    </div>
+
+    <div id="login-page" class="page h-screen flex items-center justify-center px-8">
+        <div class="bg-[#1f2833] p-8 rounded-[40px] w-full max-w-sm text-center border border-gray-800 shadow-2xl">
+            <h2 id="auth-title" class="cinzel text-xl mb-8 tracking-widest gold-text">MEMBER LOGIN</h2>
+            <div id="auth-form">
+                <input type="email" id="email" placeholder="Email Address" class="w-full bg-[#0b0c10] p-4 rounded-2xl mb-4 text-sm outline-none text-white border border-gray-800">
+                <input type="password" id="pass" placeholder="Password" class="w-full bg-[#0b0c10] p-4 rounded-2xl mb-6 text-sm outline-none text-white border border-gray-800">
+                <button id="auth-btn" onclick="handleAuth()" class="w-full bg-[#d4af37] text-black font-bold py-4 rounded-2xl text-xs uppercase mb-4">Log In</button>
+                <p id="auth-toggle-text" class="text-[10px] text-gray-500 uppercase">Don't have an account? <span onclick="toggleAuthMode(true)" class="text-[#d4af37] cursor-pointer">Sign Up</span></p>
+            </div>
+            <div class="flex items-center gap-2 my-6 text-gray-700">
+                <hr class="flex-grow border-gray-800"> <span class="text-[10px]">OR</span> <hr class="flex-grow border-gray-800">
+            </div>
+            <div class="flex justify-center gap-6">
+                <button onclick="socialAuth('Google')" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-6"></button>
+                <button onclick="socialAuth('Facebook')" class="w-12 h-12 bg-[#1877F2] text-white rounded-full flex items-center justify-center text-xl shadow-lg"><i class="fab fa-facebook-f"></i></button>
             </div>
         </div>
+    </div>
+
+    <div id="orderModal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden z-[2000] flex items-center justify-center p-6">
+        <div class="bg-[#1f2833] w-full max-w-sm rounded-3xl p-8 border border-[#d4af37]/30">
+            <h2 class="cinzel text-lg gold-text mb-6 text-center">ORDER DETAILS</h2>
+            <input type="text" id="custName" placeholder="Full Name" class="w-full bg-[#0b0c10] p-4 rounded-xl mb-3 text-sm outline-none text-white border border-gray-800">
+            <input type="text" id="custAddr" placeholder="Full Address" class="w-full bg-[#0b0c10] p-4 rounded-xl mb-3 text-sm outline-none text-white border border-gray-800">
+            <input type="tel" id="custPhone" placeholder="WhatsApp Number" class="w-full bg-[#0b0c10] p-4 rounded-xl mb-6 text-sm outline-none text-white border border-gray-800">
+            <button onclick="sendWhatsAppOrder()" class="w-full bg-[#d4af37] text-black font-bold py-4 rounded-xl text-xs uppercase tracking-widest shadow-lg">Confirm via WhatsApp</button>
+            <button onclick="closeModal()" class="w-full text-gray-500 text-[10px] mt-4 uppercase">Cancel</button>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <button onclick="navigateTo('home-page')" class="nav-item active flex flex-col items-center">
+            <i class="fas fa-home text-lg"></i><span class="text-[8px] font-bold mt-1 tracking-widest">HOME</span>
+        </button>
+        <button onclick="navigateTo('shop-page')" class="nav-item flex flex-col items-center">
+            <i class="fas fa-gem text-lg"></i><span class="text-[8px] font-bold mt-1 tracking-widest">SHOP</span>
+        </button>
+        <button onclick="navigateTo('order-page')" class="nav-item flex flex-col items-center">
+            <i class="fas fa-clipboard-list text-lg"></i><span id="order-badge" class="absolute -top-1 -right-1 bg-[#d4af37] text-black text-[8px] rounded-full px-1 font-bold hidden">0</span>
+            <span class="text-[8px] font-bold mt-1 tracking-widest">ORDERS</span>
+        </button>
+        <button onclick="navigateTo('login-page')" class="nav-item flex flex-col items-center">
+            <i class="fas fa-user-lock text-lg"></i><span id="login-status" class="text-[8px] font-bold mt-1 tracking-widest">LOGIN</span>
+        </button>
     </div>
 
     <script>
-        const d1Images = [
-            "https://i.ibb.co/LzRdH0p1/1.jpg", "https://i.ibb.co/BVg4RX5n/2.jpg", 
-            "https://i.ibb.co/CpXYwyKn/3.jpg", "https://i.ibb.co/4wVQXGKR/4.jpg", "https://i.ibb.co/6RnvRYDr/5.jpg"
+        const d1 = [
+            "https://www.dropbox.com/scl/fi/gv2yfff8ddkp95eedu74t/Messenger_creation_D8869030-A0DC-4CDE-B326-688B67D6EC4F.jpeg?rlkey=j42ijxwqoedp7449d4340w0x7&st=tg2oknqk&raw=1",
+            "https://www.dropbox.com/scl/fi/ftjltghfo852g4vb69jb3/Messenger_creation_95A36997-462E-484A-89FF-CD1071C81068.jpeg?rlkey=xvxhqj6isx2gthys5q87mwz7x&st=qmfu3p42&raw=1",
+            "https://www.dropbox.com/scl/fi/s1uncx0a34ff1y2tcg4tw/Messenger_creation_C7FF7D6A-7B33-4156-8B3D-6DA2AA2D0781.jpeg?rlkey=ej7ka67jzhp6q1y87xu1pwraa&st=xng9tyvk&raw=1",
+            "https://www.dropbox.com/scl/fi/kitvi1gj0b3n74fq8tivk/Messenger_creation_7E1FEFB3-1D71-4DCE-9034-239F7E58B4BB.jpeg?rlkey=lxv81cuniadu78oqs2kyhqdpd&st=3dvj9cdy&raw=1",
+            "https://www.dropbox.com/scl/fi/zmdmf4x4biheku0inatxi/Messenger_creation_3BD3571E-263A-46B3-A56D-93B062A257A2.jpeg?rlkey=ysg6nvnd0znoswd6k709tklf2&st=lx6seuzz&raw=1"
         ];
-        const d2Images = [
-            "https://i.ibb.co/BVMF4YqJ/6.jpg", "https://i.ibb.co/SwX0dtrZ/7.jpg", 
-            "https://i.ibb.co/rLH7Xqr/8.jpg", "https://i.ibb.co/d0pqh5p3/9.jpg", 
-            "https://i.ibb.co/KxDJKqHg/10.jpg", "https://i.ibb.co/pvpV8hJN/11.jpg"
+        const d2 = [
+            "https://www.dropbox.com/scl/fi/59wlwoyjm9z1zva605mrn/Messenger_creation_A5096547-3793-4622-A5F4-230892CD8494.jpeg?rlkey=7mh8hosuopt5qm9m5t3lshjw0&st=oa68tvpm&raw=1",
+            "https://www.dropbox.com/scl/fi/toncn9rezri31k9c4ads7/Messenger_creation_2241DEFC-DE8A-49B5-814A-00B042B16553.jpeg?rlkey=gmxvd6uuohcbkg3v1spq4k4cv&st=z0wgg9ks&raw=1",
+            "https://www.dropbox.com/scl/fi/9nazivgocwrbuzw1bkjrb/Messenger_creation_6FABF2D7-15F0-4F31-9FB2-A20C1301D7DE.jpeg?rlkey=wim4rhtfyinvxmvdf90iboq70&st=4jtgy0t2&raw=1",
+            "https://www.dropbox.com/scl/fi/g0g6gjm3atm7ebzoguytw/Messenger_creation_6F56ABE8-1FCB-4CE6-BC07-33D0B9920A55.jpeg?rlkey=lbxljw2g7bth4suuywg9gfg2d&st=p4ggmgvx&raw=1",
+            "https://www.dropbox.com/scl/fi/0kyih5apu4cjavrqvbggp/Messenger_creation_5F7E5EE8-D4B8-4AD4-9689-1D1FB3C5A610.jpeg?rlkey=kb5a7u9x46tp1v4muxexs04rc&st=flp4f6e3&raw=1",
+            "https://www.dropbox.com/scl/fi/jav32n56j95lq9reh25p2/Messenger_creation_4AABBB69-9008-4EA4-9E12-93D461053B3A.jpeg?rlkey=mahdydfgz9c9f6gc765bs1eiq&st=xlcyyd2y&raw=1"
         ];
 
-        let selectedItem = { name: '', img: '', size: '' };
+        let selectedItem = null;
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+        let isSignupMode = false;
 
-        function loadProducts() {
-            const d1Grid = document.getElementById('d1');
-            const d2Grid = document.getElementById('d2');
-
-            d1Images.forEach((url, i) => d1Grid.innerHTML += renderCard(url, `Sovereign Edition D1-${i+1}`));
-            d2Images.forEach((url, i) => d2Grid.innerHTML += renderCard(url, `Majestic Edition D2-${i+1}`));
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            document.getElementById(pageId).classList.add('active-page');
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            // Find active nav item
+            const navs = document.querySelectorAll('.nav-item');
+            if(pageId === 'home-page') navs[0].classList.add('active');
+            if(pageId === 'shop-page') navs[1].classList.add('active');
+            if(pageId === 'order-page') navs[2].classList.add('active');
+            if(pageId === 'login-page') navs[3].classList.add('active');
+            
+            if(pageId === 'order-page') renderOrders();
         }
 
-        function renderCard(url, name) {
-            return `
-            <div class="luxury-card rounded-2xl p-5 reveal">
-                <div class="overflow-hidden rounded-xl bg-neutral-900 shadow-inner">
-                    <img src="${url}" class="w-full h-[450px] object-cover">
-                </div>
-                <div class="mt-8 text-center">
-                    <h4 class="text-white text-lg font-light tracking-[1px] uppercase">${name}</h4>
-                    <p class="text-[#e5c07b] text-xl font-bold mt-2">৳ ২৫৫০</p>
-                    
-                    <div class="flex justify-center space-x-3 mt-6">
-                        <button onclick="selectSize(this, 'M')" class="size-btn w-10 h-10 rounded-full text-[10px] font-bold transition">M</button>
-                        <button onclick="selectSize(this, 'L')" class="size-btn w-10 h-10 rounded-full text-[10px] font-bold transition">L</button>
-                        <button onclick="selectSize(this, 'XL')" class="size-btn w-10 h-10 rounded-full text-[10px] font-bold transition">XL</button>
-                    </div>
-
-                    <button onclick="initOrder('${name}', '${url}')" class="mt-8 w-full bg-white text-black py-4 rounded-xl text-[11px] tracking-[3px] font-bold uppercase hover:bg-[#e5c07b] transition duration-500">Buy Now</button>
-                </div>
-            </div>`;
-        }
-
-        function switchDesign(target, btn) {
-            document.querySelectorAll('.shop-grid').forEach(g => g.classList.add('hidden'));
-            document.getElementById(target).classList.remove('hidden');
-            document.querySelectorAll('.tab-item').forEach(t => {
-                t.classList.remove('text-[#e5c07b]', 'border-b', 'border-[#e5c07b]');
-                t.classList.add('text-gray-500');
+        function filterDesign(type, btn) {
+            const container = document.getElementById('products-container');
+            container.innerHTML = "";
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.replace('text-[#d4af37]', 'text-gray-500');
+                b.classList.remove('bg-[#d4af37]/10');
             });
-            btn.classList.add('text-[#e5c07b]', 'border-b', 'border-[#e5c07b]');
-            btn.classList.remove('text-gray-500');
+            btn.classList.replace('text-gray-500', 'text-[#d4af37]');
+            btn.classList.add('bg-[#d4af37]/10');
+
+            const list = type === 'd1' ? d1 : d2;
+            list.forEach((img, i) => {
+                container.innerHTML += `
+                    <div class="product-card p-3 border border-gray-800">
+                        <img src="${img}" class="w-full h-44 object-cover rounded-xl mb-3 shadow-lg" loading="lazy">
+                        <h4 class="text-[10px] font-bold text-gray-400 mb-2 truncate uppercase tracking-widest">Premium Var ${i+1}</h4>
+                        <div class="flex justify-between items-center mb-3 text-xs">
+                            <span class="font-bold tracking-widest">৳২৫৫০</span>
+                        </div>
+                        <button onclick="openOrderModal('${img}', 'Edition ${i+1}')" class="w-full bg-white text-black text-[9px] font-black py-3 rounded-lg uppercase tracking-widest hover:bg-[#d4af37] transition">Order Now</button>
+                    </div>`;
+            });
         }
 
-        function selectSize(btn, size) {
-            btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('size-active'));
-            btn.classList.add('size-active');
-            selectedItem.size = size;
-        }
-
-        function initOrder(name, img) {
-            if(!selectedItem.size) { alert('Please select a size first.'); return; }
-            selectedItem.name = name;
-            selectedItem.img = img;
+        function openOrderModal(img, title) {
+            selectedItem = { img, title };
             document.getElementById('orderModal').style.display = 'flex';
         }
 
         function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
 
-        function submitOrder() {
+        function sendWhatsAppOrder() {
             const n = document.getElementById('custName').value;
-            const a = document.getElementById('custAddress').value;
+            const a = document.getElementById('custAddr').value;
             const p = document.getElementById('custPhone').value;
-            if(!n || !a || !p) { alert('Fill all details'); return; }
+            if(!n || !a || !p) return alert("Please fill all details");
 
-            const msg = ` আসসালামু আলাইকুম! (Men's Legacy)\n\nআমি এই পাঞ্জাবিটি নিতে চাই:\nপণ্য: ${selectedItem.name}\nসাইজ: ${selectedItem.size}\nদাম: ২৫৫০ টাকা\nছবি: ${selectedItem.img}\n\n-- কাস্টমার তথ্য --\nনাম: ${n}\nঠিকানা: ${a}\nমোবাইল: ${p}`;
+            const orderData = { ...selectedItem, date: new Date().toLocaleDateString() };
+            orders.push(orderData);
+            localStorage.setItem('orders', JSON.stringify(orders));
+            updateOrderBadge();
+
+            const msg = `NEW ORDER: Men's Legacy\n\nProduct: ${selectedItem.title}\nImage: ${selectedItem.img}\n\nClient: ${n}\nAddress: ${a}\nPhone: ${p}\nPrice: 2550 TK`;
             window.open(`https://wa.me/8801711793765?text=${encodeURIComponent(msg)}`, '_blank');
+            closeModal();
         }
 
-        // Reveal Animation
-        window.addEventListener('scroll', () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                const pos = el.getBoundingClientRect().top;
-                if(pos < window.innerHeight - 100) el.classList.add('active');
-            });
-        });
+        function renderOrders() {
+            const list = document.getElementById('ordered-list');
+            if(orders.length === 0) {
+                list.innerHTML = '<p class="text-gray-600 text-center py-10 italic">No orders yet.</p>';
+                return;
+            }
+            list.innerHTML = orders.map(item => `
+                <div class="flex items-center gap-4 bg-[#1f2833] p-4 rounded-2xl border border-gray-800">
+                    <img src="${item.img}" class="w-14 h-14 object-cover rounded-lg shadow">
+                    <div class="flex-grow text-[10px] tracking-widest uppercase">
+                        <p class="text-white font-bold">${item.title}</p>
+                        <p class="text-gray-500">${item.date} | ৳২৫৫০</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateOrderBadge() {
+            const badge = document.getElementById('order-badge');
+            if(orders.length > 0) {
+                badge.innerText = orders.length;
+                badge.classList.remove('hidden');
+            }
+        }
+
+        function toggleAuthMode(isSignup) {
+            isSignupMode = isSignup;
+            document.getElementById('auth-title').innerText = isSignup ? "CREATE ACCOUNT" : "MEMBER LOGIN";
+            document.getElementById('auth-btn').innerText = isSignup ? "Sign Up" : "Log In";
+            document.getElementById('auth-toggle-text').innerHTML = isSignup ? 
+                `Already have an account? <span onclick="toggleAuthMode(false)" class="text-[#d4af37] cursor-pointer">Log In</span>` :
+                `Don't have an account? <span onclick="toggleAuthMode(true)" class="text-[#d4af37] cursor-pointer">Sign Up</span>`;
+        }
+
+        function handleAuth() {
+            const email = document.getElementById('email').value;
+            const pass = document.getElementById('pass').value;
+            if(!email || !pass) return alert("Enter Email and Password");
+            if(isSignupMode) {
+                localStorage.setItem('user_email', email);
+                localStorage.setItem('user_pass', pass);
+                alert("Account created successfully! Now Log In.");
+                toggleAuthMode(false);
+            } else {
+                if(email === localStorage.getItem('user_email') && pass === localStorage.getItem('user_pass')) {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    alert("Logged in successfully!");
+                    checkLoginStatus();
+                    navigateTo('home-page');
+                } else {
+                    alert("Invalid Email or Password!");
+                }
+            }
+        }
+
+        function socialAuth(platform) { alert(platform + " Login Coming Soon!"); }
+
+        function checkLoginStatus() {
+            if(localStorage.getItem('isLoggedIn') === 'true') {
+                document.getElementById('login-status').innerText = "ACCOUNT";
+            }
+        }
 
         window.onload = () => {
-            loadProducts();
-            setTimeout(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('active')); }, 300);
+            filterDesign('d1', document.querySelector('.tab-btn'));
+            updateOrderBadge();
+            checkLoginStatus();
         };
     </script>
 </body>
-                  </html>
+</html>
