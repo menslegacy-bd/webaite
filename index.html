@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Legacy | Luxury Standard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #121212; /* ম্যাট ব্ল্যাক */
+            --card-bg: #1e1e1e; /* ডিপ চারকোল */
+            --text-gold: #e5c07b; /* সফট মেটালিক গোল্ড */
+            --text-silver: #e0e0e0;
+        }
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%); 
+            color: var(--text-silver);
+            overflow-x: hidden;
+        }
+        .cinzel { font-family: 'Cinzel', serif; }
+        
+        /* Glassmorphism Navigation */
+        nav {
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Luxury Product Card */
+        .luxury-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .luxury-card:hover {
+            border-color: rgba(229, 192, 123, 0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: translateY(-8px) scale(1.01);
+        }
+        .luxury-card img {
+            filter: grayscale(20%);
+            transition: 0.8s;
+        }
+        .luxury-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.08);
+        }
+
+        /* Size Selection Buttons */
+        .size-btn {
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+        .size-btn:hover, .size-active {
+            background: var(--text-gold);
+            color: black;
+            border-color: var(--text-gold);
+        }
+
+        /* Floating WhatsApp with Glow */
+        .wa-glow {
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            animation: breathe 3s infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 0 35px rgba(37, 211, 102, 0.6); }
+        }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="pb-24">
+
+    <a href="https://wa.me/8801711793765" class="fixed bottom-8 left-8 z-[1000] wa-glow bg-[#25d366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav class="sticky top-0 z-[100] px-6 py-5">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-left">
+                <h1 class="cinzel text-xl md:text-2xl tracking-[2px] text-white">MEN'S <span class="text-[#e5c07b]">LEGACY</span></h1>
+            </div>
+            <a href="https://www.facebook.com/share/1F4wi7ZPhE/" target="_blank" class="text-[10px] tracking-[2px] border border-[#e5c07b] text-[#e5c07b] px-5 py-2 hover:bg-[#e5c07b] hover:text-black transition uppercase font-bold">Follow Page</a>
+        </div>
+    </nav>
+
+    <header class="container mx-auto px-6 pt-24 pb-16 text-center reveal">
+        <h2 class="cinzel text-5xl md:text-7xl mb-6 text-white leading-tight">Define Your <br><span class="text-[#e5c07b]">Presence</span></h2>
+        <p class="text-gray-400 max-w-lg mx-auto text-sm tracking-widest uppercase">Premium Panjabi Collection — 2026</p>
+    </header>
+
+    <div class="flex justify-center space-x-12 mb-20 reveal">
+        <button onclick="switchDesign('d1', this)" class="tab-item text-[#e5c07b] border-b border-[#e5c07b] pb-2 text-xs tracking-[4px] font-bold uppercase">Design 01</button>
+        <button onclick="switchDesign('d2', this)" class="tab-item text-gray-500 pb-2 text-xs tracking-[4px] font-bold uppercase hover:text-white transition">Design 02</button>
+    </div>
+
+    <main class="container mx-auto px-6">
+        <div id="d1" class="shop-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            </div>
+        <div id="d2" class="shop-grid hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            </div>
+    </main>
+
+    <div id="orderModal" class="fixed inset-0 bg-black/90 backdrop-blur-md hidden z-[2000] flex items-center justify-center p-6">
+        <div class="bg-[#1a1a1a] border border-white/5 w-full max-w-md rounded-3xl p-8">
+            <h3 class="cinzel text-2xl text-[#e5c07b] mb-8 text-center uppercase tracking-widest">Order Details</h3>
+            <div class="space-y-6">
+                <input type="text" id="custName" placeholder="আপনার নাম" class="w-full bg-white/5 border-b border-white/10 py-3 outline-none focus:border-[#e5c07b] text-white transition">
+                <input type="text" id="custAddress" placeholder="ডেলিভারি ঠিকানা" class="w-full bg-white/5 border-b border-white/10 py-3 outline-none focus:border-[#e5c07b] text-white transition">
+                <input type="tel" id="custPhone" placeholder="মোবাইল নম্বর" class="w-full bg-white/5 border-b border-white/10 py-3 outline-none focus:border-[#e5c07b] text-white transition">
+                <button onclick="submitOrder()" class="w-full bg-[#e5c07b] text-black py-5 rounded-full font-bold uppercase tracking-widest mt-6 hover:brightness-110 transition">Confirm Order</button>
+                <button onclick="closeModal()" class="w-full text-gray-500 text-[10px] tracking-[2px] uppercase mt-2">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const d1Images = [
+            "https://i.ibb.co/LzRdH0p1/1.jpg", "https://i.ibb.co/BVg4RX5n/2.jpg", 
+            "https://i.ibb.co/CpXYwyKn/3.jpg", "https://i.ibb.co/4wVQXGKR/4.jpg", "https://i.ibb.co/6RnvRYDr/5.jpg"
+        ];
+        const d2Images = [
+            "https://i.ibb.co/BVMF4YqJ/6.jpg", "https://i.ibb.co/SwX0dtrZ/7.jpg", 
+            "https://i.ibb.co/rLH7Xqr/8.jpg", "https://i.ibb.co/d0pqh5p3/9.jpg", 
+            "https://i.ibb.co/KxDJKqHg/10.jpg", "https://i.ibb.co/pvpV8hJN/11.jpg"
+        ];
+
+        let selectedItem = { name: '', img: '', size: '' };
+
+        function loadProducts() {
+            const d1Grid = document.getElementById('d1');
+            const d2Grid = document.getElementById('d2');
+
+            d1Images.forEach((url, i) => d1Grid.innerHTML += renderCard(url, `Sovereign Edition D1-${i+1}`));
+            d2Images.forEach((url, i) => d2Grid.innerHTML += renderCard(url, `Majestic Edition D2-${i+1}`));
+        }
+
+        function renderCard(url, name) {
+            return `
+            <div class="luxury-card rounded-2xl p-5 reveal">
+                <div class="overflow-hidden rounded-xl bg-neutral-900 shadow-inner">
+                    <img src="${url}" class="w-full h-[450px] object-cover">
+                </div>
+                <div class="mt-8 text-center">
+                    <h4 class="text-white text-lg font-light tracking-[1px] uppercase">${name}</h4>
+                    <p class="text-[#e5c07b] text-xl font-bold mt-2">৳ ২৫৫০</p>
+                    
+                    <div class="flex justify-center space-x-3 mt-6">
+                        <button onclick="selectSize(this, 'M')" class="size-btn w-10 h-10 rounded-full text-[10px] font-bold transition">M</button>
+                        <button onclick="selectSize(this, 'L')" class="size-btn w-10 h-10 rounded-full text-[10px] font-bold transition">L</button>
+                        <button onclick="selectSize(this, 'XL')" class="size-btn w-10 h-10 rounded-full text-[10px] font-bold transition">XL</button>
+                    </div>
+
+                    <button onclick="initOrder('${name}', '${url}')" class="mt-8 w-full bg-white text-black py-4 rounded-xl text-[11px] tracking-[3px] font-bold uppercase hover:bg-[#e5c07b] transition duration-500">Buy Now</button>
+                </div>
+            </div>`;
+        }
+
+        function switchDesign(target, btn) {
+            document.querySelectorAll('.shop-grid').forEach(g => g.classList.add('hidden'));
+            document.getElementById(target).classList.remove('hidden');
+            document.querySelectorAll('.tab-item').forEach(t => {
+                t.classList.remove('text-[#e5c07b]', 'border-b', 'border-[#e5c07b]');
+                t.classList.add('text-gray-500');
+            });
+            btn.classList.add('text-[#e5c07b]', 'border-b', 'border-[#e5c07b]');
+            btn.classList.remove('text-gray-500');
+        }
+
+        function selectSize(btn, size) {
+            btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('size-active'));
+            btn.classList.add('size-active');
+            selectedItem.size = size;
+        }
+
+        function initOrder(name, img) {
+            if(!selectedItem.size) { alert('Please select a size first.'); return; }
+            selectedItem.name = name;
+            selectedItem.img = img;
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeModal() { document.getElementById('orderModal').style.display = 'none'; }
+
+        function submitOrder() {
+            const n = document.getElementById('custName').value;
+            const a = document.getElementById('custAddress').value;
+            const p = document.getElementById('custPhone').value;
+            if(!n || !a || !p) { alert('Fill all details'); return; }
+
+            const msg = ` আসসালামু আলাইকুম! (Men's Legacy)\n\nআমি এই পাঞ্জাবিটি নিতে চাই:\nপণ্য: ${selectedItem.name}\nসাইজ: ${selectedItem.size}\nদাম: ২৫৫০ টাকা\nছবি: ${selectedItem.img}\n\n-- কাস্টমার তথ্য --\nনাম: ${n}\nঠিকানা: ${a}\nমোবাইল: ${p}`;
+            window.open(`https://wa.me/8801711793765?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        // Reveal Animation
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                const pos = el.getBoundingClientRect().top;
+                if(pos < window.innerHeight - 100) el.classList.add('active');
+            });
+        });
+
+        window.onload = () => {
+            loadProducts();
+            setTimeout(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('active')); }, 300);
+        };
+    </script>
+</body>
+                  </html>
